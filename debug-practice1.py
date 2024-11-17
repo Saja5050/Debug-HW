@@ -39,9 +39,9 @@ class Student(Person):
     
 
     def record_attendance(self, course, date, present):
-        if course not in self.attendance:
-            self.attendance[course] = {}
-        self.attendance[course][date] = present
+        if course not in self.attendence:
+            self.attendence[course] = {}
+        self.attendence[course][date] = present
 
 class Teacher(Person):
     def __init__(self, name, age, employee_id):
@@ -148,7 +148,7 @@ class School:
         perfect_attendance = []
         for student in self.students:
             has_perfect_attendance = all(all(present for present in course_attendance.values()) 
-                                         for course_attendance in student.attendance.values())
+                                         for course_attendance in student.attendence.values())
             if has_perfect_attendance:
                 perfect_attendance.append(student)
         return perfect_attendance
