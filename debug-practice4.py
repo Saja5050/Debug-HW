@@ -81,10 +81,10 @@ class Course:
     
     def get_average_grade(self):
         if not self.students:
-            return 0
+             return 0
         total_grades = sum(sum(student.grades[self]) for student in self.students)
-        total_grades_count = sum(student.grades[self] for student in self.students)
-        return total_grades / total_grades_count if total_grades_count > 0 else 0
+        total_grades_count = sum(len(student.grades[self]) for student in self.students)
+        return total_grades / total_grades_count if total_grades_count > 0 else 0 
 
 class School:
     def __init__(self, name):
